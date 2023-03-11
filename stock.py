@@ -8,9 +8,6 @@ import pandas as pd
 import requests
 import time
 import datetime
-import warnings
-#忽略警告
-warnings.filterwarnings("ignore")
 
 url="https://histock.tw/stock/public.aspx"
 resp=requests.get(url)
@@ -55,9 +52,9 @@ def line(i) :
         df[dfc[8]][i]
     }
     data = requests.post(url, headers=headers, data=data)   # 使用 POST 方法
-
+#str(datetime.date.today())[5:].replace('-','/')
 for i in range(len(df)):
-    if str(df['申購期間'][i][5:10]) ==  str(datetime.date.today())[5:].replace('-','/') :
+    if str(df['申購期間'][i][5:10]) ==  '03/09' :
         line(i)
         time.sleep(2)
 
