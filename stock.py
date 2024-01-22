@@ -54,7 +54,7 @@ def line(i) :
     data = requests.post(url, headers=headers, data=data)   # 使用 POST 方法
 
 for i in range(len(df)):
-    if str(df['申購期間'][i][5:10]) ==  str(datetime.date.today())[5:].replace('-','/') :
+    if str(df['申購期間'][i][11:16]) ==  str(datetime.date.today())[5:].replace('-','/') :
         line(i)
         time.sleep(2)
 
