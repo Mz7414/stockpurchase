@@ -52,9 +52,9 @@ def line(i) :
         df[dfc[8]][i]
     }
     data = requests.post(url, headers=headers, data=data)   # 使用 POST 方法
-
+date = str(datetime.date.today())[5:].replace('-','/')
 for i in range(len(df)):
-    if str(df['申購期間'][i][11:16]) ==  str(datetime.date.today())[5:].replace('-','/') :
+    if str(df['申購期間'][i][11:16]) == date or str(df['申購期間'][i][5:10]) == date:
         line(i)
         time.sleep(2)
 
