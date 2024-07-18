@@ -13,7 +13,7 @@ url="https://histock.tw/stock/public.aspx"
 resp=requests.get(url)
 x=pd.read_html(resp.text)
 df=x[0]
-mask1=df["承銷張數"]>=1200
+mask1=df["承銷張數"]>=1000
 mask2=df["承銷價"]<=90
 mask3=df["備註"]!="已截止"
 
