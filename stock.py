@@ -14,7 +14,7 @@ resp=requests.get(url)
 x=pd.read_html(resp.text)
 df=x[0]
 mask1=df["承銷張數"]>=1000
-mask2=df["承銷價"]<=90
+mask2=df["承銷價"]<=120
 mask3=df["備註"]!="已截止"
 
 df=df[mask1 & mask2 & mask3]
