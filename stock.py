@@ -18,10 +18,10 @@ user = {
     "Prefix" : '【申購通知】\n'
 }
 
-def discord(e, msg) :
+def discord(e) :
     Discord_Webhook_URL = "https://discord.com/api/webhooks/1329365364106203227/zCka4cuIvuHGSBs4JCJiARHsNYPMbOwf6QKixVxDCq8T9lBjNTBaV3aOftUDNtHtChql"
     data = {
-        "content": e + msg
+        "content": e
     }
     response = requests.post(Discord_Webhook_URL, json=data)
     
@@ -29,7 +29,7 @@ try :
     from linebot.v3.messaging import MessagingApi, ApiClient, Configuration
     from linebot.v3.messaging.models import TextMessage, PushMessageRequest
 except ImportError as e :
-    discord(str(e), msg)
+    discord(str(e))
     raise
 
 def line(i) :
